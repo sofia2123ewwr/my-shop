@@ -16,6 +16,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem "faker"
 gem 'devise'
+gem 'rails_admin', '~> 3.0'
 
 group :development, :test do
   gem "rspec-rails"
@@ -33,3 +34,5 @@ group :test do
   gem "webdrivers"
   gem 'simplecov', require: false
 end
+gem "cssbundling-rails"
+gem "cssbundling-rails"
