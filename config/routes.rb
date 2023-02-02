@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: "home#index"
-  get '/product', to: 'product#show'
+  get '/product', to: 'product#index'
 end

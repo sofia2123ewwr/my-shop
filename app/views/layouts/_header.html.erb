@@ -29,7 +29,9 @@
               </button>     
             <% end %>
           <% end %>
-          <a href="/users/sign_up"><button type="button" class="inline-block px-6 py-2.5 bg-black text-orange-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-white hover:shadow-lg focus:bg-white focus:shadow-lg focus:outline-none focus:ring-0 active:bg-white active:shadow-lg transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light">Sign up</button></a>  
+          <div class="inline-block px-6 py-2.5 bg-black text-orange-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-white hover:shadow-lg focus:bg-white focus:shadow-lg focus:outline-none focus:ring-0 active:bg-white active:shadow-lg transition duration-150 ease-in-out">
+            <%= link_to "Sing Up", new_user_registration_path %>
+          </div>
         </div>
       </div>
     </nav>
