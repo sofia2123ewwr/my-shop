@@ -13,18 +13,20 @@ User.create!(first_name: "Nikita",
             email: "nikita4991@gmail.com", 
             password: "nikita", 
             password_confirmation: "nikita",
-            is_admin: true) 
+            is_admin: true)
 
-30.times do
-    Product.create(
+Category.create!(name: "Game", position: 1)
+
+# Product.create!(name: "Demo", price: 100, description: "description", position: 1, category: Category.find_by(name: "Game"))
+
+10.times do |n|
     # а треба тут картинку генерити?
     # Faker::LoremFlickr.image(size: "100x100", search_terms: ['games'])
-    name: Faker::Game.title,
-    price: Faker::Commerce.price(range: 0..100),
-    description: Faker::Game.genre,
-    position: Faker::Number.between(from: 1, to: 10),
+    name = Faker::Game.title
+    price = Faker::Commerce.price(range: 0..100)
+    description = Faker::Game.genre
+    position = "#{n+1}"
     # це треба поміняти? на category_id
-    category_id: "category_id"
-    )
-    # Product.create!(name: name, price: price, description: description, position: position, category_id: category_id)
+    category = Category.find_by(name: "Game")
+    Product.create!(name: name, price: price, description: description, position: position, category: category)
 end
