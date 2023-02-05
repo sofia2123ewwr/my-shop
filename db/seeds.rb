@@ -16,21 +16,9 @@ User.create!(first_name: "Nikita",
             is_admin: true)
 # Create categories
 # previous version category
-# Category.create!(name: "Game", position: 1)
-# Category.create!(name: "Movie", position: 2)
-# Category.create!(name: "Book", position: 3)
-# 
-3.times do |n|
-    name = "#{ if n == 0
-                name = "Game"
-            elsif n == 1
-                name = "Movie"
-            elsif n == 2
-                name = "Book"
-            end }"
-    position = "#{n+1}"
-    Category.create!(name: name, position: position)
-end
+category_1 = Category.create!(name: "Game", position: 1)
+category_2 = Category.create!(name: "Movie", position: 2)
+category_3 = Category.create!(name: "Book", position: 3)
 
 10.times do |n|
     # а треба тут картинку генерити?

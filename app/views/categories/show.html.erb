@@ -1,0 +1,17 @@
+
+  <% @category.products.each do |f| %>
+      <% if f.category_id == 1 %>
+              <p class="text-gray-700 text-base mb-4">1</p>
+
+      <% elsif f.category_id == 2 %>
+              <p class="text-gray-700 text-base mb-4">2</p>
+      <% else %>
+        <p class="text-gray-700 text-base mb-4">3</p>
+      <% end %>      
+        <h5 class="text-gray-900 text-xl font-medium mb-2"><%= f.name %></h5>
+        <p class="text-gray-700 text-base mb-4"><%= f.price %>₴</p>
+        <p class="text-gray-700 text-base mb-4"><%= f.description %></p>
+        <%= link_to products_url do %>
+        <button type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ">Add to cart</button>
+        <% end %>
+  <% end %>

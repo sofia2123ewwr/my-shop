@@ -1,19 +1,13 @@
 RailsAdmin.config do |config|
   config.asset_source = :importmap
 
-  config.authorize_with do
-    redirect_to main_app.root_path unless current_user.is_admin?
+  config.authenticate_with do
+    unless current_user&.is_admin?
+      flash[:error] = "You are not an admin"
+      redirect_to main_app.new_user_session_path
+    end
   end
-
-  ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
-
-  ## == Gravatar integration ==
-  ## To disable Gravatar integration in Navigation Bar set to false
-  # config.show_gravatar = true
+  config.current_user_method(&:current_user)
 
   config.actions do
     dashboard                     # mandatory
