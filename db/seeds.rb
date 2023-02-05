@@ -40,8 +40,8 @@ end
     description = Faker::Game.genre
     position = "#{n+1}"
     # це треба поміняти? на category_id
-    category = Category.find_by(name: "Game")
-    Product.create!(name: name, price: price, description: description, position: position, category: category)
+    category_id = 1
+    Product.create!(name: name, price: price, description: description, position: position, category_id: category_id)
 end
 
 10.times do |n|
@@ -52,8 +52,8 @@ end
     description = Faker::Movie.quote
     position = "#{n+1}"
     # це треба поміняти? на category_id
-    category = Category.find_by(name: "Movie")
-    Product.create!(name: name, price: price, description: description, position: position, category: category)
+    category_id = 2
+    Product.create!(name: name, price: price, description: description, position: position, category_id: category_id)
 end
 
 10.times do |n|
@@ -64,7 +64,6 @@ end
     description = Faker::Book.genre
     position = "#{n+1}"
     # це треба поміняти? на category_id
-    category = Category.find_by(name: "Book")
-    Product.create!(name: name, price: price, description: description, position: position, category: category)
+    category_id = 3
+    Product.create!(name: name, price: price, description: description, position: position, category_id: category_id)
 end
-

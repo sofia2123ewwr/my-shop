@@ -290,7 +290,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.1)
-  rails_admin (~> 3.0)
+  rails_admin
   rspec-rails
   selenium-webdriver
   simplecov
@@ -303,7 +303,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.0.0p0
+   ruby 3.1.0p0
 
 BUNDLED WITH
    2.4.4
