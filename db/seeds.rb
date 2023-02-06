@@ -14,44 +14,41 @@ User.create!(first_name: "Nikita",
             password: "nikita", 
             password_confirmation: "nikita",
             is_admin: true)
+
 # Create categories
-# previous version category
+
 category_1 = Category.create!(name: "Game", position: 1)
 category_2 = Category.create!(name: "Movie", position: 2)
 category_3 = Category.create!(name: "Book", position: 3)
 
+# Create products
+
 10.times do |n|
-    # а треба тут картинку генерити?
-    # Faker::LoremFlickr.image(size: "100x100", search_terms: ['games'])
+    #Faker::LoremFlickr.image(size: "192x317", search_terms: ['games'])
     name = Faker::Game.title
     price = Faker::Commerce.price(range: 100..500)
     description = Faker::Game.genre
     position = "#{n+1}"
-    # це треба поміняти? на category_id
-    category_id = 1
+    category_id = category_1.position
     Product.create!(name: name, price: price, description: description, position: position, category_id: category_id)
 end
 
 10.times do |n|
-    # а треба тут картинку генерити?
-    # Faker::LoremFlickr.image(size: "100x100", search_terms: ['games'])
+  #  Faker::LoremFlickr.image(size: "200x200", search_terms: ['movie'])
     name = Faker::Movie.title
     price = Faker::Commerce.price(range: 50..100)
     description = Faker::Movie.quote
     position = "#{n+1}"
-    # це треба поміняти? на category_id
-    category_id = 2
+    category_id = category_2.position
     Product.create!(name: name, price: price, description: description, position: position, category_id: category_id)
 end
 
 10.times do |n|
-    # а треба тут картинку генерити?
-    # Faker::LoremFlickr.image(size: "100x100", search_terms: ['games'])
+  #  Faker::LoremFlickr.image(size: "100x100", search_terms: ['book'])
     name = Faker::Book.title
     price = Faker::Commerce.price(range: 50..150)
     description = Faker::Book.genre
     position = "#{n+1}"
-    # це треба поміняти? на category_id
-    category_id = 3
+    category_id = category_3.position
     Product.create!(name: name, price: price, description: description, position: position, category_id: category_id)
 end
