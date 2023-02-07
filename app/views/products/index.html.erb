@@ -4,13 +4,11 @@
 <div id="products">
     <% @products.each do |product| %>
       <%= render 'product', product: product %>
-      <div class="flex space-x-я4 mb-6 text-sm font-medium">
-          <div class="flex-auto flex space-x-4">
-              <%# <%# <button class="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit"> %>
-              <%# Add to bag %>
-              <%# </button> %>
-              <%= button_to "Add to cart", cart_products_path(:product_id => product.id), class:"h-10 px-6 font-semibold rounded-md bg-black text-white" %>
-          </div>
+      <div class="mb-6 text-sm font-medium">
+        <div class="flex justify-center">
+            <%= button_to "Add to cart", cart_product_path(:product_id => product.id), class:"h-10 px-6 font-semibold rounded-md bg-black text-white" %>
+            <%= render 'shared/messages' %>
         </div>
+      </div>
     <% end %>
 </div>

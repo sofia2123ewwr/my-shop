@@ -1,22 +1,52 @@
-<h2>Cart show</h2>
-<ul>
-  <% @cart.cart_products.each do |cart_product| %>
-    <li>Item: <%= cart_product.product.name %>/ Price: <%= number_to_currency(cart_product.product.price) %>/ Quantity: <%= cart_product.quantity %>/ Total Price: <%= number_to_currency(cart_product.total_price) %>
-    # See lineItem section below for explanation of cart_product links
-    <ul>
-      <li>
-        <%= link_to "Add one", cart_product_add_path(:id => cart_product), method: :post %>
-        <%= link_to "Reduce one", cart_product_reduce_path(:id => cart_product), method: :post %>
-      </li>
-      <li>
-        <%= link_to "Remove item", cart_product_path(cart_product), method: :delete %>
-      </li>
-    </ul>
-    #
-  <% end %>
-</ul>
-<h3>Sub total: <%= number_to_currency(@cart.sub_total) %></h3>
-# See Order section below for explanation of new_order_path
-<%# link_to "Proceed to checkout", new_order_path %><br>
-#
-<%= link_to "Empty cart", cart_path(@current_cart),method: :delete, data: {confirm: "Are you sure?"}
+<div class="bg-gray-100 pt-20">
+  <h1 class="text-center my-10 text-5xl md:text-6xl xl:text-7xl text-orange-600 font-bold mb-12">Cart</h1>
+  <div class="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
+    <div class="rounded-lg md:w-2/3">
+    <% @cart.cart_products.each do |cart_product| %>
+      <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
+        <div class="object-center w-3/12 relative">
+          <%= image_tag("new-product.png", alt: "Product")  %>
+        </div>
+        <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
+          <div class="mt-5 sm:mt-0">
+            <h2 class="text-lg font-bold text-gray-900"><%= cart_product.product.name %></h2>
+            <p class="mt-1 text-xs text-gray-700"><%= number_to_currency(cart_product.product.price) %></p>
+          </div>
+          <div class="mt-4 flex justify-between im sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
+            <div class="flex items-center border-gray-100">
+              <span class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50">
+                <%= link_to "+", cart_product_add_path(:id => cart_product), method: :post %>
+              </span>
+              <%= cart_product.quantity %>
+              <span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
+                <%= link_to "-", cart_product_reduce_path(:id => cart_product), method: :post %>
+              </span>
+            </div>
+            <div class="flex items-center space-x-4">
+              <p class="text-sm"><%= number_to_currency(cart_product.total_price) %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <!-- Sub total -->
+    <div class="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
+    <% @cart.cart_products.each do |cart_product| %>
+      <div class="mb-2 flex justify-between">
+        <p class="text-gray-700"><%= cart_product.product.name %></p>
+        <p class="text-gray-700"><%= cart_product.quantity %></p>
+        <p class="text-gray-700"><%= number_to_currency(cart_product.total_price) %></p>
+      </div>
+    <% end %>
+      <hr class="my-4"/>
+      <div class="flex justify-between">
+        <p class="text-lg font-bold">Sum</p>
+        <div class="">
+          <p class="mb-1 text-lg font-bold"><%= number_to_currency(@cart.sub_total) %></p>
+        </div>
+      </div>
+      <button class="mt-6 w-full rounded-md bg-orange-600 py-1.5 font-medium text-black hover:bg-gray-200"><%= link_to "Order", new_order_path %></button>
+    </div>
+  </div>
+</div>

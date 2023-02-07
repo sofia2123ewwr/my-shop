@@ -13,11 +13,13 @@ class CartProductsController < ApplicationController
       @cart_product = CartProduct.new(cart: @current_cart,
                                       product: chosen_product,
                                       quantity: 1)
+
     end
 
     # Save and redirect to cart show path
     @cart_product.save
-    redirect_to cart_path(@current_cart)
+    flash[:danger] = 'Invalid email/password combination'
+    # redirect_to cart_path(@current_cart)
   end
 
   def destroy
