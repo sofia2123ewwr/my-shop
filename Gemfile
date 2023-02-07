@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.0"
+ruby "3.1.0"
 
 gem "rails", "~> 7.0.4", ">= 7.0.4.1"
 gem "sprockets-rails"
@@ -16,7 +16,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem "faker"
 gem 'devise'
-gem 'rails_admin', '~> 3.0'
+gem 'rails_admin'
 
 group :development, :test do
   gem "rspec-rails"
@@ -34,5 +34,4 @@ group :test do
   gem "webdrivers"
   gem 'simplecov', require: false
 end
-gem "cssbundling-rails"
 gem "cssbundling-rails"
