@@ -1,7 +1,16 @@
 <h1 class="text-center my-10 text-5xl md:text-6xl xl:text-7xl text-orange-600 font-bold mb-12">All products</h1>
 <%= render 'categories/category_id' %>
+
 <div id="products">
     <% @products.each do |product| %>
       <%= render 'product', product: product %>
+      <div class="flex space-x-я4 mb-6 text-sm font-medium">
+          <div class="flex-auto flex space-x-4">
+              <%# <%# <button class="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit"> %>
+              <%# Add to bag %>
+              <%# </button> %>
+              <%= button_to "Add to cart", cart_products_path(:product_id => product.id), class:"h-10 px-6 font-semibold rounded-md bg-black text-white" %>
+          </div>
+        </div>
     <% end %>
 </div>

@@ -1,5 +1,5 @@
 <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 border-4 border-x-white border-y-black">
-    <div class="flex font-sans"> 
+    <div class="flex font-sans">
       <div class="object-center w-3/12 relative">
         <%= image_tag("new-product.png", alt: "Product")  %>
       </div>
@@ -23,19 +23,9 @@
             </div>
           </label>
         </div>
-        <p class="mb-10 text-sm text-slate-700"> 
-          <%= link_to product.description, products_path %> 
+        <p class="mb-10 text-sm text-slate-700">
+          <%= link_to product.description, products_path %>
         </p>
-        <div class="flex space-x-я4 mb-6 text-sm font-medium">
-          <div class="flex-auto flex space-x-4">
-              <button class="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit">
-              Add to bag
-              </button>
-              <%# <button class="h-10 px-6 font-semibold rounded-md border border-slate-200 text-slate-900" type="button">
-              Buy now
-              </button> %>
-          </div>
-        </div>
       </form>
     </div>
 </section>
