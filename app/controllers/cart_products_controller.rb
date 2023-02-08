@@ -17,6 +17,7 @@ class CartProductsController < ApplicationController
     end
     # Save and redirect to cart show path
     @cart_product.save
+    flash[:success] = "Product added to the cart"
     # redirect_to cart_path(@current_cart)
   end
 

@@ -3,7 +3,7 @@
     <div class="object-center w-3/12 relative">
       <%= image_tag("new-product.png", alt: "Product")  %>
     </div>
-    <form class="flex-auto p-6">
+    <div class="flex-auto p-6">
       <div class="flex flex-wrap">
         <h1 class="flex-auto text-lg font-semibold text-slate-900">
           <%= link_to product.name, products_path %>
@@ -23,7 +23,12 @@
       <p class="mb-10 text-sm text-slate-700">
         <%= link_to product.description, products_path %>
       </p>
-    </form>
+      <div class="mb-6 text-sm font-medium">
+        <div class="flex justify-center">
+            <%= link_to "Add to cart", cart_products_path(product_id: product.id), class:"h-10 px-6 font-semibold rounded-md bg-black text-white", data: {turbo_method: :post} %>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 <br/>
