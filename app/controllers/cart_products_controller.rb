@@ -15,10 +15,8 @@ class CartProductsController < ApplicationController
                                       quantity: 1)
 
     end
-
     # Save and redirect to cart show path
     @cart_product.save
-    flash[:danger] = 'Invalid email/password combination'
     # redirect_to cart_path(@current_cart)
   end
 
@@ -39,6 +37,9 @@ class CartProductsController < ApplicationController
     @cart_product = CartProduct.find(params[:id])
     @cart_product.quantity -= 1
     @cart_product.save
+    if @cart_product.quantity == 0
+      @cart_product.destroy
+    end
     redirect_to cart_path(@current_cart)
   end
 
