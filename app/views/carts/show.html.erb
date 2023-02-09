@@ -49,15 +49,12 @@
           <p class="mb-1 text-lg font-bold"><%= number_to_currency(@cart.sub_total) %></p>
         </div>
       </div>
-      <% if user_signed_in? %>
-        <button class="mt-6 w-full rounded-md bg-orange-600 py-1.5 font-medium text-black hover:bg-gray-200">
-          <%= link_to "Order", new_order_path %>
-        </button>
-      <% else %>
-        <button class="mt-6 w-full rounded-md bg-orange-600 py-1.5 font-medium text-black hover:bg-gray-200">
-          <%= link_to "Products Order",  new_product_order_path %>
-        </button>
-      <% end %>
+      <button class="mt-6 w-full rounded-md bg-orange-600 py-1.5 font-medium text-black hover:bg-gray-200">
+        <%= link_to "Order", new_order_path %>
+      </button>
+      <button class="mt-6 w-full rounded-md bg-orange-600 py-1.5 font-medium text-black hover:bg-gray-200">
+        <%= link_to "Empty cart", cart_path(@current_cart), data: {turbo_method: :delete, confirm: "Are you sure?"} %>
+      </button>
     </div>
   </div>
 </div>
