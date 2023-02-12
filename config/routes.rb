@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # resources :product_orders
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
 end
