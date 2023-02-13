@@ -1,5 +1,5 @@
 @layer base {
   .font {
-    @apply max-w-7xl m-auto bg-pink-500 shadow md:flex md:items-center md:justify-between;
+    @apply text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12
   }
 }

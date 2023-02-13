@@ -1,10 +1,8 @@
 <header class="inset-x-0 top-0">
-  <nav class="testclass absolute navbar navbar-expand-lg shadow-md py-2 bg-orange-600 relative flex items-center w-full justify-between">
+  <nav class="testclass  navbar-expand-lg shadow-md py-2 bg-orange-600 relative flex items-center w-full justify-between">
     <div class="px-6 w-full flex flex-wrap items-center justify-between">
-      <div class="flex items-center">
-        <a class=" w-10 h-10 navbar-brand text-black" href="https://market.rukavychka.ua/">
-          <%= image_tag("mitten.png", alt: "Mitten")  %>
-        </a>
+      <div class="flex items-center w-8 h-8">
+        <%= image_tag("mitten.png", alt: "Mitten")  %>
       </div>
       <div class=" px-10 navbar-collapse grow items-center" id="navbarSupportedContentY">
         <ul class="navbar-nav mr-auto lg:flex lg:flex-row">
@@ -18,14 +16,17 @@
       </div>
       <div class="flex items-center lg:ml-auto">
         <% if user_signed_in? %>
+          <div class="nav-item nav-link block pr-2 lg:px-2 py-2 text-white hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out">
+            <%= link_to "#{current_user.first_name} #{current_user.last_name}", orders_path %>
+          </div>
           <div class="inline-block px-6 py-2.5 mr-2 bg-transparent text-black font-medium text-xs leading-tight uppercase rounded hover:text-orange-600 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-0 active:bg-gray-200 transition duration-150 ease-in-out">
             <%= button_to("LOG OUT", destroy_user_session_path, method: :delete) %>
           </div>
         <% else %>
           <%= link_to(new_user_session_path) do %>
-            <button type="button" class="inline-block px-6 py-2.5 mr-2 bg-transparent text-black font-medium text-xs leading-tight uppercase rounded hover:text-orange-600 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-0 active:bg-gray-200 transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light">
+            <div class="inline-block px-6 py-2.5 mr-2 bg-transparent text-black font-medium text-xs leading-tight uppercase rounded hover:text-orange-600 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-0 active:bg-gray-200 transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light">
                 Log in
-            </button>
+            </div>
           <% end %>
         <% end %>
         <div class="inline-block px-6 py-2.5 bg-black text-orange-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-white hover:shadow-lg focus:bg-white focus:shadow-lg focus:outline-none focus:ring-0 active:bg-white active:shadow-lg transition duration-150 ease-in-out">

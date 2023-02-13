@@ -8,11 +8,9 @@
 @import "./components/nav.css";
 
 /*
-
 @layer components {
-  .btn-primary {
+  .font-s {
     @apply py-2 px-4 bg-blue-200;
   }
 }
-
 */
