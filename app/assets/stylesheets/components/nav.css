@@ -1,5 +1,5 @@
-@layer base {
-  .font {
-    @apply text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12
+/* @layer components {
+  .fontdert {
+    @apply text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12;
   }
-}
+} */

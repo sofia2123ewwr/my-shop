@@ -11,12 +11,13 @@ gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "tailwindcss-rails"
-gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem "faker"
 gem 'devise'
 gem 'rails_admin'
+gem 'simple_form'
+gem 'country_select', '~> 8.0'
 
 group :development, :test do
   gem "rspec-rails"

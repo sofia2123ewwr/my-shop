@@ -10,4 +10,8 @@ class Cart < ApplicationRecord
     end
     sum
   end
+
+  def clear
+    cart_products.destroy_all
+  end
 end

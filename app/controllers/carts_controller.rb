@@ -1,6 +1,8 @@
 class CartsController < ApplicationController
+
   def show
-    @cart = @current_cart
+    @cart_products = @current_cart.cart_products.includes(:product)
+    @cart_sub_total = @current_cart.sub_total
   end
 
   def destroy
@@ -9,4 +11,16 @@ class CartsController < ApplicationController
     session[:cart_id] = nil
     redirect_to root_path
   end
+
+  # def create
+  #   cart = Cart.new
+  #   # add cart product
+
+
+  #   cart.save
+
+
+  #   session[:cart_id] = @current_cart.id
+
+  # end
 end

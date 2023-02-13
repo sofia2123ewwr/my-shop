@@ -18,5 +18,8 @@ class ApplicationController < ActionController::Base
         session[:cart_id] = @current_cart.id
       end
     end
+    # if session[:cart_id].present?
+    #   @current_cart = Cart.find(session[:cart_id])
+    # end
   end
 end

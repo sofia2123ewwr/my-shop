@@ -1,0 +1,28 @@
+<div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
+  <div class="object-center w-3/12 relative">
+    <%= image_tag("new-product.png", alt: "Product")  %>
+  </div>
+  <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
+    <div class="mt-5 sm:mt-0">
+      <h2 class="text-lg font-bold text-gray-900"><%= cart_product.product.name %></h2>
+      <p class="mt-1 text-xs text-gray-700"><%= number_to_currency(cart_product.product.price) %></p>
+    </div>
+    <div class="mt-4 flex justify-between im sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
+      <div class="flex items-center border-gray-100">
+        <button class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-orange-600 hover:text-blue-50">
+          <%= link_to "-", cart_product_reduce_path(:id => cart_product), method: :post %>
+        </button>
+        <p><%= cart_product.quantity %></p>
+        <button class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-orange-600 hover:text-blue-50">
+          <%= link_to "+", cart_product_add_path(:id => cart_product), method: :post %>
+        </button>
+        <button class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-orange-600 hover:text-blue-50">
+          <%= link_to "Remove product", cart_product_path(cart_product), data: {turbo_method: :delete} %>
+        </button>
+      </div>
+      <div class="flex items-center space-x-4">
+        <p class="text-sm"><%= number_to_currency(cart_product.total_price) %></p>
+      </div>
+    </div>
+  </div>
+</div>
