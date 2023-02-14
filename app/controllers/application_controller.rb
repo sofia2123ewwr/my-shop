@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   attr_accessor :current_cart
-
   before_action :initalize_cart
 
   def initalize_cart
@@ -18,8 +17,8 @@ class ApplicationController < ActionController::Base
         session[:cart_id] = @current_cart.id
       end
     end
-    # if session[:cart_id].present?
-    #   @current_cart = Cart.find(session[:cart_id])
-    # end
   end
+  # if session[:cart_id].present?
+  #   @current_cart = Cart.find(session[:cart_id])
+  # end
 end
