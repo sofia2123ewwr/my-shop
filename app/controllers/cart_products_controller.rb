@@ -15,10 +15,12 @@ class CartProductsController < ApplicationController
                                       quantity: 1)
 
     end
+
     # Save and redirect
     @cart_product.save
     flash[:success] = "Product added to the cart"
     redirect_to products_path
+
   end
 
   def destroy
@@ -41,6 +43,7 @@ class CartProductsController < ApplicationController
     if @cart_product.quantity == 0
       @cart_product.destroy
     end
+
     redirect_to cart_path(@current_cart)
   end
 
