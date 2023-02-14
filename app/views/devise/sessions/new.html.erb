@@ -1,6 +1,6 @@
 <div class="text-center my-40">
-  <h2 class="text-5xl md:text-6xl xl:text-7xl text-orange-600 font-bold mb-12">Log in</h2>
-  <div class="inline-block p-6 rounded-2xl shadow-2xl bg-white max-w-md">
+  <h2 class="title-sign-up">Log in</h2>
+  <div class="form-form">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <%= f.label :email %><br />
@@ -20,7 +20,7 @@
       <% end %>
       <br/>
       <div class="actions">
-        <div class="actions inline-block px-6 py-2.5 bg-black text-orange-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-white hover:shadow-lg focus:bg-white focus:shadow-lg focus:outline-none focus:ring-0 active:bg-white active:shadow-lg transition duration-150 ease-in-out">
+        <div class="header-link-sign">
           <%= f.submit "Log in" %>
         </div>
       </div>

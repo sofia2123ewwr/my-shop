@@ -1,19 +1,17 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import "components/buttons.css";
-@import "./components/forms.css";
-@import "./components/cards.css";
-@import "./components/tables.css";
-@import "./components/nav.css";
+@import "./components/carts.css";
+@import "./components/home.css";
+@import "./components/header.css";
+@import "./components/category.css";
+@import "./components/foooter.css";
+@import "./components/orders.css";
 
-/* @layer components {
-  .fontdert {
-    @apply text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12;
+/*
+@layer components {
+  . {
+    @apply
   }
-} */
-/* @layer components {
-  .btn-base {
-    @apply bg-red-500;
-  }
-} */
+}
+*/

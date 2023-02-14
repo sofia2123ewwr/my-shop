@@ -1,0 +1,65 @@
+@layer components {
+  .block-cart {
+    @apply justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start;
+  }
+}
+
+@layer components {
+  .button-cart {
+    @apply cursor-pointer bg-gray-200 py-1 px-3.5 duration-100 hover:bg-orange-600 hover:text-white;
+  }
+}
+
+@layer components {
+  .block-img-product {
+    @apply object-center w-3/12 relative;
+  }
+}
+
+@layer components {
+  .block-cart-product {
+    @apply sm:ml-4 sm:flex sm:w-full sm:justify-between;
+  }
+}
+
+@layer components {
+  .cart-product-button {
+    @apply mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6;
+  }
+}
+
+@layer components {
+  .block-button-sum {
+    @apply mt-6 w-full rounded-md bg-orange-600 py-1.5 font-medium text-black hover:bg-gray-200;
+  }
+}
+
+@layer components {
+  .title-cart {
+    @apply text-center my-10 text-5xl md:text-6xl xl:text-7xl text-orange-600 font-bold mb-12;
+  }
+}
+
+@layer components {
+  .block-global {
+    @apply mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3;
+  }
+}
+
+@layer components {
+  .block-products {
+    @apply mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0;
+  }
+}
+
+@layer components {
+  .button-order {
+    @apply inline-block text-center mt-6 w-full rounded-md bg-orange-600 py-1.5 font-medium text-black hover:bg-gray-200;
+  }
+}
+
+@layer components {
+  .block-global-info {
+    @apply mb-2 flex justify-between text-gray-700;
+  }
+}

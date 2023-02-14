@@ -1,14 +1,14 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :show]
+  # before_action :authenticate_user!, only: [:index, :show]
   before_action :validate_current_cart, only: [:new, :create]
 
-  def index
-    @orders = collection
-  end
+  # def index
+  #   @orders = collection
+  # end
 
-  def show
-    @order = resource
-  end
+  # def show
+  #   @order = resource
+  # end
 
   def create
     @order = Order.new(user_id: current_user&.id)
@@ -46,13 +46,13 @@ class OrdersController < ApplicationController
     @current_cart.cart_products.empty?
   end
 
-  def collection
-    current_user.orders
-  end
+  # def collection
+  #   current_user.orders
+  # end
 
-  def resource
-    collection.find(params[:id])
-  end
+  # def resource
+  #   collection.find(params[:id])
+  # end
 
   def order_detail_params
     params[:order]

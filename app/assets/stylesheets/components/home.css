@@ -1,0 +1,23 @@
+@layer base {
+  .block-title-home {
+    @apply text-center bg-gray-50 text-black py-24 my-40;
+  }
+}
+
+@layer base {
+  .title-home {
+    @apply text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12;
+  }
+}
+
+@layer components {
+  .title-sign-up {
+    @apply text-5xl md:text-6xl xl:text-7xl text-orange-600 font-bold mb-12;
+  }
+}
+
+@layer components {
+  .form-form{
+    @apply inline-block p-6 rounded-2xl shadow-2xl bg-white max-w-md;
+  }
+}

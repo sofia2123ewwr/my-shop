@@ -3,4 +3,6 @@ class Product < ApplicationRecord
   has_many :cart_products
   has_many :product_orders, dependent: :destroy
   has_many :orders, through: :product_orders, dependent: :destroy
+
+  scope :by_category, -> (category) { where(category_id: category) }
 end

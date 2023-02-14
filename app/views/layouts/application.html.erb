@@ -16,6 +16,10 @@
     <% if flash[:success].present? %>
       <p><%= flash[:success] %></p>
     <% end %>
+    <% if flash[:error].present? %>
+      <p><%= flash[:error] %></p>
+    <% end %>
+
 
     <% if notice %>
       <p class="notice"><%= notice %></p>

@@ -1,32 +1,27 @@
 <div class="bg-gray-100 pt-20">
-  <h1 class="text-center my-10 text-5xl md:text-6xl xl:text-7xl text-orange-600 font-bold mb-12">Cart</h1>
-  <div class="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
+  <h1 class="title-cart">Cart</h1>
+  <div class="block-products">
     <div class="rounded-lg md:w-2/3">
-    <% @cart_products.each do |cart_product| %>
-      <%= render 'cart_product', cart_product: cart_product %>
-    <% end %>
+      <% @cart_products.each do |cart_product| %>
+        <%= render 'cart_product', cart_product: cart_product %>
+      <% end %>
     </div>
     <!-- Sub total -->
-    <div class="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
+    <div class="block-global">
       <% @cart_products.each do |cart_product| %>
-      <div class="mb-2 flex justify-between">
-        <p class="text-gray-700"><%= cart_product.product.name %></p>
-        <p class="text-gray-700"><%= cart_product.quantity %></p>
-        <p class="text-gray-700"><%= number_to_currency(cart_product.total_price) %></p>
-      </div>
+        <div class="block-global-info">
+          <p><%= cart_product.product.name %></p>
+          <p><%= cart_product.quantity %></p>
+          <p><%= number_to_currency(cart_product.total_price, unit: "₴", format: "%n %u") %></p>
+        </div>
       <% end %>
       <hr class="my-4"/>
       <div class="flex justify-between">
         <p class="text-lg font-bold">Sum</p>
-        <div class="">
-          <p class="mb-1 text-lg font-bold"><%= number_to_currency(@cart_sub_total) %></p>
-        </div>
+        <p class="mb-1 text-lg font-bold"><%= number_to_currency(@cart_sub_total, unit: "₴", format: "%n %u") %></p>
       </div>
-      <button class="mt-6 w-full rounded-md bg-orange-600 py-1.5 font-medium text-black hover:bg-gray-200">
-        <%= link_to "Order", new_order_path %>
-      </button>
-      <button class="mt-6 w-full rounded-md bg-orange-600 py-1.5 font-medium text-black hover:bg-gray-200">
-        <%= link_to "Empty cart", cart_path(@current_cart), data: {turbo_method: :delete, confirm: "Are you sure?"} %>
+        <%= link_to "Order", new_order_path, class: "button-order" %>
+        <%= button_to "Empty cart", cart_path(@current_cart), method: :delete, class: "button-order" %>
       </button>
     </div>
   </div>
