@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  # before_action :authenticate_user!, only: [:index, :show]
   before_action :validate_current_cart, only: [:new, :create]
 
   # def index
@@ -17,7 +16,6 @@ class OrdersController < ApplicationController
     @current_cart.cart_products.each do |cart_product|
       @order.product_orders.new(product_id: cart_product.product_id, quantity: cart_product.quantity)
     end
-    # debugger
 
     if @order.save
       clear_cart
