@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
     @categories = category_resource
     @products = collection
   end
-
+  
   private
   
   def category_resource

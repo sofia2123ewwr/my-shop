@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   attr_accessor :current_cart
-  before_action :initalize_cart
+  before_action :initialize_cart
 
-  def initalize_cart
+  def initialize_cart
     if user_signed_in?
       if current_user.cart.present?
         @current_cart = current_user.cart

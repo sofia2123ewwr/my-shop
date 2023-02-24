@@ -6,7 +6,6 @@
         <%= render 'cart_product', cart_product: cart_product %>
       <% end %>
     </div>
-    <!-- Sub total -->
     <div class="block-global">
       <% @cart_products.each do |cart_product| %>
         <div class="block-global-info">
@@ -21,7 +20,7 @@
         <p class="mb-1 text-lg font-bold"><%= number_to_currency(@cart_sub_total, unit: "₴", format: "%n %u") %></p>
       </div>
         <%= link_to "Order", new_order_path, class: "button-order" %>
-        <%= button_to "Empty cart", cart_path(@current_cart), method: :delete, class: "button-order" %>
+        <%= button_to 'Empty Cart', empty_cart_cart_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
       </button>
     </div>
   </div>
