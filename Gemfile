@@ -15,12 +15,12 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem "faker"
 gem 'devise'
-gem 'simple_form'
+gem 'simple_form', git: 'https://github.com/loqimean/simple_form.git'
 gem 'country_select', '~> 8.0'
 
 group :development, :test do
   gem "rspec-rails"
-  gem "factory_bot"
+  gem 'factory_bot_rails'
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 

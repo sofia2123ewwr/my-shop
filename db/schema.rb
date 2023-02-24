@@ -63,7 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_13_145311) do
 
   create_table "orders", force: :cascade do |t|
     t.string "status", default: "Done"
-    t.datetime "ordered_at", default: "2023-02-13 08:43:36"
+    t.datetime "ordered_at", default: "2023-02-22 16:47:21"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

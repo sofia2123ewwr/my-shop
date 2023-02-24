@@ -9,9 +9,9 @@
     </div>
     <div class="cart-product-button">
       <div class="flex items-center border-gray-100">
-        <%= button_to "-", cart_product_reduce_path(id: cart_product), method: :post, class: 'button-cart rounded-l' %>
+        <%= button_to "-", reduce_quantity_cart_product_path(cart_product), method: :post, class: 'button-cart rounded-l' %>
         <p class="px-2"><%= cart_product.quantity %></p>
-        <%= button_to "+", cart_product_add_path(id: cart_product), method: :post, class: 'button-cart rounded-r' %>
+        <%= button_to "+", add_quantity_cart_product_path(cart_product), method: :post, class: 'button-cart rounded-r' %>
         <%= button_to "Remove product", cart_product_path(cart_product), method: :delete, class: 'button-cart rounded  ml-1' %>
       </div>
       <p class="text-sm pt-6"><%= number_to_currency(cart_product.total_price, unit: "₴", format: "%n %u") %></p>

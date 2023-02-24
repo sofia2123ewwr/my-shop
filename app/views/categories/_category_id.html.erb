@@ -9,7 +9,7 @@
           <%= product.name %>
         </h1>
         <div class="text-lg font-semibold text-slate-500">
-          <%= product.price %>
+          <%= number_to_currency(product.price, unit: "₴", format: "%n %u") %>
         </div>
       </div>
       <div class="section-two">

@@ -1,13 +1,9 @@
 class CartProductsController < ApplicationController
 
   def create
-    # Find associated product and current cart
     chosen_product = Product.find(params[:product_id])
-    # If cart already has this product then find the relevant cart_product and iterate quantity otherwise create a new cart_product for this product
     if @current_cart.products.include?(chosen_product)
-      # Find the cart_product with the chosen_product
       @cart_product = @current_cart.cart_products.find_by(:product_id => chosen_product)
-      # Iterate the cart_product's quantity by one
       @cart_product.quantity += 1
     else
       @cart_product = CartProduct.new(cart: @current_cart,
@@ -15,7 +11,6 @@ class CartProductsController < ApplicationController
                                       quantity: 1)
     end
 
-    # Save and redirect
     @cart_product.save
     flash[:success] = "Product added to the cart"
     redirect_back(fallback_location: products_path)

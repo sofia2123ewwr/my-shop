@@ -12,7 +12,7 @@
         <div class="block-global-info">
           <p><%= cart_product.product.name %></p>
           <p><%= cart_product.quantity %></p>
-          <p><%= number_to_currency(cart_product.total_price, unit: "₴", format: "%n %u") %></p>
+          <p><%= cart_product.total_price %></p>
         </div>
       <% end %>
       <hr class="my-4"/>

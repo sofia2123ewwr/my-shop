@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/loqimean/simple_form.git
+  revision: 0641503244fbf3da4ee3bd091a03d9ac410af465
+  specs:
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -103,6 +111,9 @@ GEM
     erubi (1.12.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     faker (3.1.1)
       i18n (>= 1.8.11, < 2)
     globalid (1.1.0)
@@ -206,9 +217,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    simple_form (5.2.0)
-      actionpack (>= 5.2)
-      activemodel (>= 5.2)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -263,7 +271,7 @@ DEPENDENCIES
   country_select (~> 8.0)
   debug
   devise
-  factory_bot
+  factory_bot_rails
   faker
   importmap-rails
   pg (~> 1.1)
@@ -271,7 +279,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.1)
   rspec-rails
   selenium-webdriver
-  simple_form
+  simple_form!
   simplecov
   sprockets-rails
   stimulus-rails
