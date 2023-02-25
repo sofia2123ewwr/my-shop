@@ -1,9 +1,59 @@
-<%= form_for(@order) do |f| %>
-  <p>
-    <%= f.label :user_id %><br>
-    <%= f.text_field :name, required: true, autofocus: true %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end
+<div class="block-for-block">
+  <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+    <div class="block-inn-block">
+      <div class="max-w-md mx-auto">
+        <%= simple_form_for @order do |form| %>
+          <%= form.simple_fields_for :order_detail do |f_detail| %>
+            <div class="flex items-center space-x-5">
+              <div class="icon-order">O</div>
+              <div class="params-order">
+                <h2 class="leading-relaxed">Create Order</h2>
+                <p class="text-order">Write your data</p>
+              </div>
+            </div>
+            <div class="divide-y divide-gray-200">
+              <div class="mt-6 global-place">
+                <% if !user_signed_in? %>
+                  <%= render 'orders/form', f_detail: f_detail %>
+                <% end %>
+              </div>
+            </div>
+            <%= f_detail.simple_fields_for :address do |f_address| %>
+              <div class="my-0 py-6 global-place">
+              <%= f_address.input :country, priority: ["UA"], :label => false, :placeholder => 'City', :input_html => { :class => 'input-form' }%>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="flex flex-col">
+                  <div class="one-place-form ">
+                    <%= f_address.input :city, :label => false, :placeholder => 'City', :input_html => { :class => 'input-form' } %>
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <div class="one-place-form">
+                    <%= f_address.input :street, :label => false, :placeholder => 'Street', :input_html => { :class => 'input-form' } %>
+                  </div>
+                </div>
+              </div>
+              <div class="divide-y divide-gray-200">
+                <div class="mt-6 global-place">
+                  <div class="flex flex-col">
+                    <%= f_address.input :comment, as: :text, :label => false, :placeholder => 'what else do you need????????', :input_html => { :class => 'input-form' } %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+          <div class="pt-4 flex items-center space-x-4">
+            <%= link_to cart_path(@current_cart), class: "button-cancel border border-orange-600" do %>
+              <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+              <span>Cancel</span>
+            <% end %>
+            <%= form.button :submit, class: "button-submit" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

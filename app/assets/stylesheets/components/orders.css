@@ -1,0 +1,95 @@
+@layer components {
+  .button-submit {
+    @apply bg-orange-600 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none hover:bg-gray-200 hover:text-orange-600;
+  }
+}
+@layer components {
+  .button-cancel {
+    @apply flex justify-center items-center w-full text-gray-900 px-4 py-3 rounded-md focus:outline-none hover:bg-gray-200 hover:text-orange-600;
+  }
+}
+
+@layer components {
+  .input-form {
+    @apply px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600;
+  }
+}
+
+@layer components {
+  .global-place {
+    @apply text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7;
+  }
+}
+
+@layer components {
+  .one-place-form {
+    @apply relative focus-within:text-gray-600 text-gray-400;
+  }
+}
+
+@layer components {
+  .icon-order {
+    @apply h-14 w-4 bg-orange-600 rounded-full flex flex-shrink-0 justify-center items-center text-gray-200 text-2xl font-mono;
+  }
+}
+
+@layer components {
+  .params-order {
+    @apply block pl-2 font-semibold text-xl self-start text-gray-700;
+  }
+}
+
+@layer components {
+  .text-order {
+    @apply text-sm text-gray-500 font-normal leading-relaxed;
+  }
+}
+
+@layer components{
+  .block-for-block { 
+    @apply bg-gray-100 py-6 flex flex-col justify-center sm:py-12;
+  }
+}
+
+@layer components {
+  .block-inn-block {
+    @apply relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10;
+  }
+}
+
+
+@layer components{
+  .block-in-block{
+    @apply relative py-3 sm:max-w-xl sm:mx-auto;
+  }
+}
+
+@layer components {
+  .block-with-orders {
+    @apply md:px-32 py-8 w-full;
+  }
+}
+
+@layer components {
+  .table-orders {
+    @apply min-w-full bg-white;
+  }
+} 
+
+@layer components {
+  .order-thh {
+    @apply text-left py-3 px-4 uppercase font-semibold text-sm;
+  }
+}
+
+@layer components {
+  .with-tabble {
+    @apply overflow-hidden rounded border-b border-orange-600;
+  }
+}
+
+@layer components {
+  .order-tdd {
+    @apply text-left py-3 px-4
+  }
+}

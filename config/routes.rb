@@ -1,23 +1,28 @@
 Rails.application.routes.draw do
   root to: "home#index"
+  resources :products, only: :index
 
-  get 'carts/:id' => "carts#show", as: "cart"
-  delete 'carts/:id' => "carts#destroy"
+  resource :cart, only: [:show] do
+    member do
+      post 'add_to_cart'
+      delete 'empty_cart'
+    end
+  end
+  
+  resources :carts, except: [:show] do
+    member do
+      delete :remove_from_cart
+      post :add_quantity
+      post :reduce_quantity
+    end
+  end
 
-  get 'cart_products/:id/add' => "cart_products#add_quantity", as: "cart_product_add"
-  get 'cart_products/:id/reduce' => "cart_products#reduce_quantity", as: "cart_product_reduce"
+  resources :categories, onty: :show
+  resources :orders, only: [:new, :index, :create]
 
-  get '/products', to: 'products#index'
-  get '/categories', to: 'caregories#show'
-
-  resources :cart_products, only: [:create, :destroy]
-  resources :categories
-  resources :orders
-
-  # resources :product_orders
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  resources :products, only: [:index, :show]
   devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
 end

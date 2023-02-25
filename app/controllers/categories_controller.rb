@@ -1,15 +1,17 @@
 class CategoriesController < ApplicationController
+
   def show
-    @category = Category.find(params[:id])
+    @category = resource
+    @categories = collection
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category
-        @category = Category.find(params[:id])
-    end
+  def collection
+    Category.sort_position
+  end
 
-    def category_params
-      params.require(:category).permit(:name)
-    end
+  def resource
+    collection.find(params[:id])
+  end
+
 end

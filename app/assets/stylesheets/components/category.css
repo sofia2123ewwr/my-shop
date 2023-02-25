@@ -1,0 +1,29 @@
+@layer components {
+  .title-category {
+    @apply text-center my-10 text-5xl md:text-6xl xl:text-7xl text-orange-600 font-bold mb-12;
+  }
+}
+
+@layer components {
+  .sectionn {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 border-4 border-x-white border-y-black;
+  }
+}
+
+@layer components {
+  .section-two {
+    @apply flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200;
+  }
+}
+
+@layer components {
+  .block-category {
+    @apply rounded-lg flex items-center justify-center text-white peer-checked:font-semibold bg-black peer-checked:text-white;
+  }
+}
+
+@layer components {
+  .link-to-cart {
+    @apply inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+  }
+}

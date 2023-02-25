@@ -1,10 +1,16 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @categories = category_resource
+    @products = collection
+  end
+  
+  private
+  
+  def category_resource
+    Category.sort_position
   end
 
-  private
-  def product_params
-    params.require(:product).permit(:name, :price)
+  def collection
+    Product.all
   end
 end
