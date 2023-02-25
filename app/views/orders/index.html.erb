@@ -17,7 +17,7 @@
             <td class="order-tdd"><%= order.id %></td>
             <td class="order-tdd"><%= order.status %></td>
             <td class="order-tdd"><%= order.ordered_at.strftime("%B %d, %Y") %></td>
-            <td lcass="order-tdd"><%= order.calculate_sub_total %>
+            <td lcass="order-tdd"><%= number_to_currency(order.calculate_sub_total, unit: "₴", format: "%n %u") %>
           </tr>
         <% end %>
       </tbody>

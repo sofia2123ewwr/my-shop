@@ -1,24 +1,27 @@
 class ApplicationController < ActionController::Base
   attr_accessor :current_cart
-  before_action :initialize_cart
 
-  def initialize_cart
+  def current_cart
+    @current_cart ||= find_or_create_cart
+  end
+
+  private
+
+  def find_or_create_cart
     if user_signed_in?
-      if current_user.cart.present?
-        @current_cart = current_user.cart
-      else
-        @current_cart = Cart.create(user: current_user)
-      end
+      current_user.cart || current_user.create_cart
     else
-      if session[:cart_id].present?
-        @current_cart = Cart.find(session[:cart_id])
-      else
-        @current_cart = Cart.create
-        session[:cart_id] = @current_cart.id
-      end
+      session_cart || create_session_cart
     end
   end
-  # if session[:cart_id].present?
-  #   @current_cart = Cart.find(session[:cart_id])
-  # end
+
+  def session_cart
+    Cart.find_by(id: session[:cart_id])
+  end
+
+  def create_session_cart
+    cart = Cart.create
+    session[:cart_id] = cart.id
+    cart
+  end
 end

@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     @order = Order.new(user_id: current_user&.id)
     @order.build_order_detail(order_detail_params)
     @order.order_detail.build_address(address_params)
-    @current_cart.cart_products.each do |cart_product|
+    current_cart.cart_products.each do |cart_product|
       @order.product_orders.new(product_id: cart_product.product_id, quantity: cart_product.quantity)
     end
   
@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
   end
 
   def is_cart_empty?
-    @current_cart.cart_products.empty?
+    current_cart.cart_products.empty?
   end
 
   def collection
@@ -57,6 +57,6 @@ class OrdersController < ApplicationController
   end
 
   def clear_cart
-    @current_cart.destroy
+    current_cart.destroy
   end
 end

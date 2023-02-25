@@ -1,6 +1,5 @@
 <footer class="block-cart-footer">
   <div class="mr-4">Тop for your money</div>
-  <% if @current_cart %>
     <div  class="block-with-cart">
       <div class="flex items-center w-8 h-8">
         <%= link_to cart_path(@current_cart) do %>
@@ -8,5 +7,4 @@
         <% end %>
       </div> 
     </div>
-  <% end %>
 </footer>
