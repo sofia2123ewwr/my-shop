@@ -14,9 +14,16 @@
 
   <body class="flex flex-col h-screen justify-between">
     <%= render 'layouts/header' %>
+    <% if flash[:success].present? %>
+      <p><%= flash[:success] %></p>
+    <% end %>
+
+    <% if notice %>
       <p class="notice"><%= notice %></p>
+    <% elsif alert %>
       <p class="alert"><%= alert %></p>
-      <%= yield %>
+    <% end %>
+    <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
 </html>

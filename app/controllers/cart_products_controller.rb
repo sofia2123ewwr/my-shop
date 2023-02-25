@@ -16,10 +16,11 @@ class CartProductsController < ApplicationController
 
     end
 
-    # Save and redirect to cart show path
+    # Save and redirect
     @cart_product.save
-    flash[:danger] = 'Invalid email/password combination'
-    # redirect_to cart_path(@current_cart)
+    flash[:success] = "Product added to the cart"
+    redirect_to products_path
+
   end
 
   def destroy
@@ -37,10 +38,12 @@ class CartProductsController < ApplicationController
 
   def reduce_quantity
     @cart_product = CartProduct.find(params[:id])
-    if @cart_product.quantity > 1
-      @cart_product.quantity -= 1
-    end
+    @cart_product.quantity -= 1
     @cart_product.save
+    if @cart_product.quantity == 0
+      @cart_product.destroy
+    end
+
     redirect_to cart_path(@current_cart)
   end
 

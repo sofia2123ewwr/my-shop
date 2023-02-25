@@ -1,29 +1,34 @@
 <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 border-4 border-x-white border-y-black">
-    <div class="flex font-sans">
-      <div class="object-center w-3/12 relative">
-        <%= image_tag("new-product.png", alt: "Product")  %>
-      </div>
-      <form class="flex-auto p-6">
-        <div class="flex flex-wrap">
-          <h1 class="flex-auto text-lg font-semibold text-slate-900">
-            <%= link_to product.name, products_path %>
-          </h1>
-          <div class="text-lg font-semibold text-slate-500">
-            <%= link_to product.price, products_path %>
-          </div>
-        </div>
-        <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
-          <label>
-            <input class="sr-only peer" name="category" type="radio" value="Game" checked />
-            <div class="rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
-              <%= link_to product.category.name, products_path %>
-            </div>
-          </label>
-        </div>
-        <p class="mb-10 text-sm text-slate-700">
-          <%= link_to product.description, products_path %>
-        </p>
-      </form>
+  <div class="flex font-sans">
+    <div class="object-center w-3/12 relative">
+      <%= image_tag("new-product.png", alt: "Product")  %>
     </div>
+    <div class="flex-auto p-6">
+      <div class="flex flex-wrap">
+        <h1 class="flex-auto text-lg font-semibold text-slate-900">
+          <%= link_to product.name, products_path %>
+        </h1>
+        <div class="text-lg font-semibold text-slate-500">
+          <%= link_to product.price, products_path %>
+        </div>
+      </div>
+      <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
+        <label>
+          <input class="sr-only peer" name="category" type="radio" value="Game" checked />
+          <div class="rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
+            <%= link_to product.category.name, products_path %>
+          </div>
+        </label>
+      </div>
+      <p class="mb-10 text-sm text-slate-700">
+        <%= link_to product.description, products_path %>
+      </p>
+      <div class="flex space-x-я4 mb-6 text-sm font-medium">
+        <div class="flex-auto flex space-x-4">
+            <%= link_to "Add to cart", cart_products_path(product_id: product.id), class:"inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gary active:shadow-lg transition duration-150 ease-in-out", data: {turbo_method: :post} %>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <br/>
