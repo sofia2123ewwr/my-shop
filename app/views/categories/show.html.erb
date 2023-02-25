@@ -1,4 +1,4 @@
-<h1 class="title-category">Category</h1>
+<h2 class="title-category">Category</h2>
 <div class="flex justify-center my-5">
   <% @categories.each do |category| %>
     <%= link_to category.name, category, class: "header-link-sign ml-10" %>
@@ -7,6 +7,7 @@
 
 <div>
   <% @category.products.each do |product| %>
-    <%= render 'categories/category_id', product: product %>
+    <%= render 'products/product', product: product %>
   <% end %>
 </div>
+

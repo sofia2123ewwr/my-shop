@@ -1,2 +1,26 @@
-<h2>All Orders</h2>
-<%# during %>
+<h2 class="title-category">All Orders</h2>
+
+<div class="block-with-orders">
+  <div class="with-tabble">
+    <table class="table-orders">
+      <thead class="bg-gray-900 text-orange-600">
+        <tr>
+          <th class="order-thh">ID</th>
+          <th class="order-thh">Status</th>
+          <th class="order-thh">Order Date</th>
+          <th class="order-thh">Sum</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-700">
+        <% @orders.each do |order| %>
+          <tr>
+            <td class="order-tdd"><%= order.id %></td>
+            <td class="order-tdd"><%= order.status %></td>
+            <td class="order-tdd"><%= order.ordered_at.strftime("%B %d, %Y") %></td>
+            <td lcass="order-tdd"><%= order.calculate_sub_total %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -43,7 +43,7 @@ class CartsController < ApplicationController
   end
 
   def empty_cart
-    @current_cart.cart_products.destroy_all
+    @current_cart.clear
     redirect_to root_path
   end
 end

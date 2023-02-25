@@ -9,10 +9,12 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :carts do
-    delete :remove_from_cart, on: :member
-    post :add_quantity, on: :member
-    post :reduce_quantity, on: :member
+  resources :carts, except: [:show] do
+    member do
+      delete :remove_from_cart
+      post :add_quantity
+      post :reduce_quantity
+    end
   end
 
   resources :categories, onty: :show

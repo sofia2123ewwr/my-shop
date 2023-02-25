@@ -1,13 +1,9 @@
 class OrdersController < ApplicationController
   before_action :validate_current_cart, only: [:new, :create]
 
-  # def index
-  #   @orders = collection
-  # end
-
-  # def show
-  #   @order = resource
-  # end
+  def index
+    @orders = collection
+  end
 
   def create
     @order = Order.new(user_id: current_user&.id)
@@ -16,8 +12,8 @@ class OrdersController < ApplicationController
     @current_cart.cart_products.each do |cart_product|
       @order.product_orders.new(product_id: cart_product.product_id, quantity: cart_product.quantity)
     end
-
-    if @order.save
+  
+    if @order.save_with_sub_total
       clear_cart
       redirect_to root_path
     else
@@ -44,13 +40,9 @@ class OrdersController < ApplicationController
     @current_cart.cart_products.empty?
   end
 
-  # def collection
-  #   current_user.orders
-  # end
-
-  # def resource
-  #   collection.find(params[:id])
-  # end
+  def collection
+    current_user.orders
+  end
 
   def order_detail_params
     params[:order]
@@ -65,6 +57,6 @@ class OrdersController < ApplicationController
   end
 
   def clear_cart
-    @current_cart.clear
+    @current_cart.destroy
   end
 end

@@ -46,13 +46,50 @@
 }
 
 @layer components{
-  .block-for-block{
+  .block-for-block { 
     @apply bg-gray-100 py-6 flex flex-col justify-center sm:py-12;
   }
 }
 
+@layer components {
+  .block-inn-block {
+    @apply relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10;
+  }
+}
+
+
 @layer components{
   .block-in-block{
     @apply relative py-3 sm:max-w-xl sm:mx-auto;
+  }
+}
+
+@layer components {
+  .block-with-orders {
+    @apply md:px-32 py-8 w-full;
+  }
+}
+
+@layer components {
+  .table-orders {
+    @apply min-w-full bg-white;
+  }
+} 
+
+@layer components {
+  .order-thh {
+    @apply text-left py-3 px-4 uppercase font-semibold text-sm;
+  }
+}
+
+@layer components {
+  .with-tabble {
+    @apply overflow-hidden rounded border-b border-orange-600;
+  }
+}
+
+@layer components {
+  .order-tdd {
+    @apply text-left py-3 px-4
   }
 }

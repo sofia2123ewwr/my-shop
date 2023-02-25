@@ -1,5 +1,5 @@
 <div class="bg-gray-100 pt-20">
-  <h1 class="title-cart">Cart</h1>
+  <h2 class="title-cart">Cart</h2>
   <div class="block-products">
     <div class="rounded-lg md:w-2/3">
       <% @cart_products.each do |cart_product| %>
@@ -20,7 +20,7 @@
         <p class="mb-1 text-lg font-bold"><%= number_to_currency(@cart_sub_total, unit: "₴", format: "%n %u") %></p>
       </div>
         <%= link_to "Order", new_order_path, class: "button-order" %>
-        <%= button_to 'Empty Cart', empty_cart_cart_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        <%= button_to 'Empty Cart', empty_cart_cart_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "button-order" %>
       </button>
     </div>
   </div>
